@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fct_orders
+    columns:
+      - name: cart_id
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+
+  - name: dim_products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_customers
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique

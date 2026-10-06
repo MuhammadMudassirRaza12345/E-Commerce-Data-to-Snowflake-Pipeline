@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_products
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: email
+        tests:
+          - not_null
+
+  - name: stg_cart_items
+    columns:
+      - name: cart_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null

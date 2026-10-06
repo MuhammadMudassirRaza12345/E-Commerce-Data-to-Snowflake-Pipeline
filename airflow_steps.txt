@@ -1,0 +1,101 @@
+python3 --version
+pip3 --version
+
+
+sudo apt install python3.8-venv -y
+
+python3 -m venv airflow_env
+
+source airflow_env/bin/activate
+
+pip install --upgrade pip
+
+
+# air flow install
+pip install "apache-airflow==2.9.0" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.0/constraints-3.8.txt"
+
+# connect install
+pip install apache-airflow-providers-snowflake snowflake-connector-python "snowflake-connector-python[pandas]" pandas requests python-dotenv
+
+pip install dbt-snowflake
+
+# Airflow home set karo aur database initialize karo
+export AIRFLOW_HOME=~/airflow
+airflow db init
+
+#  Admin user banao
+airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com
+
+
+Step 5 — Webserver start karo
+VS Code mein pehla terminal mein run karo:
+
+
+export AIRFLOW_HOME=~/airflow
+airflow webserver --port 8080
+
+Step 6 — Scheduler start karo
+VS Code mein naya terminal kholo ( + button) aur run karo:
+
+source "/mnt/c/Users/lenovo/Desktop/learning Project/airflow_env/bin/activate"
+export AIRFLOW_HOME=~/airflow
+airflow scheduler
+
+
+mkdir -p "/mnt/c/Users/lenovo/Desktop/learning Project/dags"
+
+Step 3 — Airflow ko batao dags folder kahan hai
+bashexport AIRFLOW_HOME=~/airflow
+~/airflow/airflow.cfg file mein yeh line update karni hai:
+
+
+
+
+Step 5 — Airflow restart karo
+Dono terminals band karo aur dobara start karo:
+Terminal 1:
+bashsource "/mnt/c/Users/lenovo/Desktop/learning Project/airflow_env/bin/activate"
+export AIRFLOW_HOME=~/airflow
+airflow webserver --port 8080
+
+Terminal 2:
+bashsource "/mnt/c/Users/lenovo/Desktop/learning Project/airflow_env/bin/activate"
+export AIRFLOW_HOME=~/airflow
+airflow scheduler
+
+
+
+
+
+# Python virtual environment banao
+python3 -m venv airflow_env
+source airflow_env/bin/activate
+
+# Airflow install
+pip install "apache-airflow==2.9.0" \
+  --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.0/constraints-3.8.txt"
+
+
+# Airflow home set karo
+export AIRFLOW_HOME=~/airflow
+
+# Database initialize
+airflow db init
+
+# Admin user banao
+airflow users create \
+  --username admin \
+  --password admin \
+  --firstname Admin \
+  --lastname User \
+  --role Admin \
+  --email admin@example.com
+
+
+ # 2 alag terminals mein chalao
+
+# Terminal 1 — Webserver
+airflow webserver --port 8080
+
+# Terminal 2 — Scheduler
+airflow scheduler   

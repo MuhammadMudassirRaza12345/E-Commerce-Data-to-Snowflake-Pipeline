@@ -1,0 +1,29 @@
+.env
+.env.*
+!example.env
+
+# Virtual environments
+airflow_env/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Airflow / app generated files
+logs/
+logs/*.log
+*.log
+dags/__pycache__/
+
+# Local data folders
+data/
+
+# dbt local build artifacts and secrets
+# Keep local profiles and generated outputs off GitHub
+**/target/
+**/logs/
+**/profiles.yml
+**/.user.yml

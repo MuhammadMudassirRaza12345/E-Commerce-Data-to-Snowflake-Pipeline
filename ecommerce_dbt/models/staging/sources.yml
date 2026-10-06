@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ECOMMERCE_DB
+    schema: RAW
+    tables:
+      - name: RAW_PRODUCTS
+      - name: RAW_USERS
+      - name: RAW_CARTS
+      - name: RAW_CART_ITEMS 
